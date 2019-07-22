@@ -45,8 +45,8 @@ colnames(MergeSet)[3:ncol(MergeSet)] <- gsub('[()]', '', colnames(MergeSet)[3:nc
 ## Extracts only the measurements on the mean and standard deviation for each measurement.
 featureChoose <- grep("(mean|std)\\(\\)",features$featureName) 
 MergeSetChoose <- MergeSet[ ,c(1,2,(2+featureChoose)),with=FALSE]
+write.table(MergeSetChoose,"tidyData_all.txt",row.names = FALSE)
 
-fwrite(x = MergeSetChoose, file = "tidyData_all.txt", quote = FALSE)
 
 ## creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 MergeSetChoose.second <- MergeSetChoose
@@ -54,5 +54,5 @@ MergeSetChoose.second <- MergeSetChoose
 MergeSetChoose.second <- melt(data = MergeSetChoose.second, id = c("subjectNum", "activityName"))
 MergeSetChoose.second <- dcast(data = MergeSetChoose.second, subjectNum + activityName ~ variable, mean)
 
-fwrite(x = MergeSetChoose.second, file = "tidyData_average.txt", quote = FALSE)
+write.table(MergeSetChoose.second,"tidyData_average.txt",row.names = FALSE)
 
