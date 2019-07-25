@@ -32,7 +32,7 @@ sprintf("Median total number of steps taken per day is %d", median(activity.day$
 ```
 ## What is the average daily activity pattern?
 
-```{r calculate2, echo=TRUE,fig.width=4}
+```{r calculate2, echo=TRUE,fig.width=10}
 # Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
 # calculate the average number of steps taken, averaged across all days
